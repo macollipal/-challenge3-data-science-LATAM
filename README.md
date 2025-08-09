@@ -49,7 +49,7 @@ El archivo resultante fue llamado "datos_tratados.csv", el cual fue el que se ut
 
 Gráfico principal EDA
 
-![Texto alternativo](macollipal/-challenge3-data-science-LATAM/imagenes/churn_pie.png)
+![Proporción de clientes por Churn](imagenes/churn_pie.png)
 
  **Ingeniería de Características:**
 
