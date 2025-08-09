@@ -29,3 +29,8 @@ Las etapas desarrolladas fueron:
 * **Modelado Predictivo:** Entrenamiento y validación de modelos de clasificación, incluyendo Regresión Logística y Random Forest.
 
 * **Interpretación de Resultados:** Determinación de los factores con mayor impacto en el Churn para respaldar la toma de decisiones estratégicas.
+
+Gráfico principal EDA
+
+![Texto alternativo](macollipal/-challenge3-data-science-LATAM/imagenes/churn_pie.png)
+
