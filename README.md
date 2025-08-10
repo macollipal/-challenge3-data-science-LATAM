@@ -33,7 +33,7 @@ Las etapas desarrolladas fueron:
 * **Interpretación de Resultados:** Determinación de los factores con mayor impacto en el Churn para respaldar la toma de decisiones estratégicas.
 
 
-## Etapas Analisis y Modelado
+## Etapas Análisis y Modelado
 
 
 
@@ -112,7 +112,7 @@ Los datos se dividieron en **entrenamiento** y **prueba**, y se evaluó el rendi
 
 ### 📊 Correlación con `Churn_Yes` (variable objetivo)
 
-En las visualizacions de abajo las relaciones entre variables numéricas y la variable objetivo churn_1. Resalta factores que aumentan la probabilidad de fuga (ej. fibra óptica, pago con cheque electrónico) y factores que la reducen (ej. contrato de dos años, mayor antigüedad).
+En las visualizaciones de abajo las relaciones entre variables numéricas y la variable objetivo churn_1. Resalta factores que aumentan la probabilidad de fuga (ej. fibra óptica, pago con cheque electrónico) y factores que la reducen (ej. contrato de dos años, mayor antigüedad).
 
 | 📌 Variable | 📈 Correlación | 💡 Interpretación |
 |-------------|---------------|-------------------|
@@ -125,7 +125,7 @@ En las visualizacions de abajo las relaciones entre variables numéricas y la va
 <img src="imagenes/correlacion_churn.png" alt="Análisis del heatmap de correlación" width="60%"/>
 
 
-## Comparacion de modelos entrenados
+## Comparación de modelos entrenados
 
 ### 📈 Interpretación de Resultados
 
