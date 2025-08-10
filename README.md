@@ -13,7 +13,7 @@ Este proyecto tiene como finalidad anticipar la pérdida de clientes (churn) en 
 1.  [Descripción del Proyecto](#-descripción-del-proyecto)
 2.  [Etapas Análisis y Modelado](#-análisis-y-modelado)
 3.  [Resultados Claves](#-resultados-clave)
-4.  [Recomendaciones estratégicas](#-reconedaciones-estrategicas)
+4.  [Interpretación de Resultados](#-reconedaciones-estrategicas)
 
 
 ## Descripción del Proyecto
@@ -83,8 +83,30 @@ El archivo resultante, denominado datos_tratados.csv, es el que se utiliza como 
 
  * Se identificaron las columnas más influyentes para el análisis y se eliminaron aquellas que no aportaban valor o que eran redundantes.
 
+## Resultados Claves
 
- ## Resultados Claves
+## 🤖 Modelado Predictivo
+
+**Análisis del Modelo Predictivo:**
+
+Se entrenaron y evaluaron dos algoritmos para predecir la variable objetivo `churn_1`: **Regresión Logística** y **Random Forest**.
+
+**Regresión Logística:** modelo lineal que permite interpretar el peso de cada variable en la probabilidad de fuga. Presentó buen rendimiento para identificar clientes que permanecen, pero menor sensibilidad para detectar casos de fuga.
+
+**Random Forest:** modelo de ensamble basado en múltiples árboles de decisión. Obtuvo un mejor equilibrio entre clases, detectando más clientes en riesgo de fuga sin sacrificar demasiado la precisión global.
+
+Los datos se dividieron en **entrenamiento** y **prueba**, y se evaluó el rendimiento mediante **accuracy** y **matriz de confusión**.
+
+| Modelo               | Accuracy | Sensibilidad (Recall Fuga) | Precisión (Precision Fuga) | Observaciones |
+|----------------------|----------|----------------------------|----------------------------|--------------|
+| Regresión Logística  | 0.80     | 0.65                       | 0.68                       | Más interpretable, menor capacidad para detectar fugas. |
+| Random Forest        | 0.83     | 0.72                       | 0.70                       | Mejor equilibrio entre clases, mayor detección de fugas. |
+
+
+**Conclusión:** el **Random Forest** se adapta mejor a este problema debido a su capacidad para manejar relaciones no lineales y variables categóricas. Se recomienda optimizar hiperparámetros y aplicar técnicas de balanceo de clases (como **SMOTE** o ponderación de clases) para mejorar la detección de churn.
+
+
+## Interpretación de Resultados 
 
  > El gráfico muestra **correlaciones ≥ 0.2** (o ≤ -0.2) con la variable objetivo `Churn_Yes` (`churn_1`).
 
@@ -102,22 +124,25 @@ En las visualizacions de abajo las relaciones entre variables numéricas y la va
 
 <img src="imagenes/correlacion_churn.png" alt="Análisis del heatmap de correlación" width="60%"/>
 
-## 🤖 Análisis del Modelo Predictivo
 
-Se entrenaron y evaluaron dos algoritmos para predecir la variable objetivo `churn_1`: **Regresión Logística** y **Random Forest**.
+## Comparacion de modelos entrenados
 
-**Regresión Logística:** modelo lineal que permite interpretar el peso de cada variable en la probabilidad de fuga. Presentó buen rendimiento para identificar clientes que permanecen, pero menor sensibilidad para detectar casos de fuga.
+### 📈 Interpretación de Resultados
 
-**Random Forest:** modelo de ensamble basado en múltiples árboles de decisión. Obtuvo un mejor equilibrio entre clases, detectando más clientes en riesgo de fuga sin sacrificar demasiado la precisión global.
+Al comparar los modelos entrenados:
 
-Los datos se dividieron en **entrenamiento** y **prueba**, y se evaluó el rendimiento mediante **accuracy** y **matriz de confusión**.
+- **Regresión Logística:**  
+  Buen rendimiento general (accuracy = 0.80) para identificar clientes que permanecen, pero menor capacidad para detectar fugas (recall = 0.65). Esto implica que varios clientes en riesgo no son detectados, lo que puede limitar las estrategias de retención.  
 
-| Modelo               | Accuracy | Sensibilidad (Recall Fuga) | Precisión (Precision Fuga) | Observaciones |
-|----------------------|----------|----------------------------|----------------------------|--------------|
-| Regresión Logística  | 0.80     | 0.65                       | 0.68                       | Más interpretable, menor capacidad para detectar fugas. |
-| Random Forest        | 0.83     | 0.72                       | 0.70                       | Mejor equilibrio entre clases, mayor detección de fugas. |
+  ![Matriz de confusión - Regresión Logística](imagenes/ConfusionMatrix-LR.png)
 
-**Conclusión:** el **Random Forest** se adapta mejor a este problema debido a su capacidad para manejar relaciones no lineales y variables categóricas. Se recomienda optimizar hiperparámetros y aplicar técnicas de balanceo de clases (como **SMOTE** o ponderación de clases) para mejorar la detección de churn.
+- **Random Forest:**  
+  Mejor equilibrio entre precisión y sensibilidad, con accuracy de 0.83 y recall = 0.72 para la clase “Fuga”. Esto significa que detecta más clientes en riesgo y reduce falsos negativos, aunque aún puede optimizarse con ajustes de hiperparámetros y balanceo de clases.  
+
+  ![Matriz de confusión - Random Forest](imagenes/ConfusionMatrix-RF.png)
+
+**Conclusión general:**  
+El **Random Forest** se adapta mejor a este problema, ya que mejora la detección de churn manteniendo un rendimiento estable. La **Regresión Logística** sigue siendo útil como modelo interpretable de referencia, pero menos efectiva para identificar clientes en riesgo.
 
 ## 📝 Instrucciones para ejecutar el cuaderno
 
