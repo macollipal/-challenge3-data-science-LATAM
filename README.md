@@ -100,5 +100,21 @@ En las visualizacions de abajo las relaciones entre variables numéricas y la va
 | **customer.tenure** | `-0.35` | Cuanto mayor el tiempo como cliente, menor la probabilidad de churn – esperado. |
 | **internet.InternetService_No** | `-0.23` | Quienes **no usan internet** tienden a churnar menos – posiblemente perfiles más estables (adultos mayores, menos digitales). |
 
-![gráfico Correlación Churn]() 
 <img src="imagenes/correlacion_churn.png" alt="Análisis del heatmap de correlación" width="60%"/>
+
+## 🤖 Análisis del Modelo Predictivo
+
+Se entrenaron y evaluaron dos algoritmos para predecir la variable objetivo `churn_1`: **Regresión Logística** y **Random Forest**.
+
+**Regresión Logística:** modelo lineal que permite interpretar el peso de cada variable en la probabilidad de fuga. Presentó buen rendimiento para identificar clientes que permanecen, pero menor sensibilidad para detectar casos de fuga.
+
+**Random Forest:** modelo de ensamble basado en múltiples árboles de decisión. Obtuvo un mejor equilibrio entre clases, detectando más clientes en riesgo de fuga sin sacrificar demasiado la precisión global.
+
+Los datos se dividieron en **entrenamiento** y **prueba**, y se evaluó el rendimiento mediante **accuracy** y **matriz de confusión**.
+
+| Modelo               | Accuracy | Sensibilidad (Recall Fuga) | Precisión (Precision Fuga) | Observaciones |
+|----------------------|----------|----------------------------|----------------------------|--------------|
+| Regresión Logística  | 0.80     | 0.65                       | 0.68                       | Más interpretable, menor capacidad para detectar fugas. |
+| Random Forest        | 0.83     | 0.72                       | 0.70                       | Mejor equilibrio entre clases, mayor detección de fugas. |
+
+**Conclusión:** el **Random Forest** se adapta mejor a este problema debido a su capacidad para manejar relaciones no lineales y variables categóricas. Se recomienda optimizar hiperparámetros y aplicar técnicas de balanceo de clases (como **SMOTE** o ponderación de clases) para mejorar la detección de churn.
