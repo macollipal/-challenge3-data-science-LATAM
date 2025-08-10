@@ -118,3 +118,11 @@ Los datos se dividieron en **entrenamiento** y **prueba**, y se evaluó el rendi
 | Random Forest        | 0.83     | 0.72                       | 0.70                       | Mejor equilibrio entre clases, mayor detección de fugas. |
 
 **Conclusión:** el **Random Forest** se adapta mejor a este problema debido a su capacidad para manejar relaciones no lineales y variables categóricas. Se recomienda optimizar hiperparámetros y aplicar técnicas de balanceo de clases (como **SMOTE** o ponderación de clases) para mejorar la detección de churn.
+
+## 📝 Instrucciones para ejecutar el cuaderno
+
+1. **Abrir el archivo** `challenge3_data_science_LATAM.ipynb` en Google Colab o Jupyter Notebook.  
+2. Asegurarse de tener en la misma carpeta el archivo **`datos_tratados.csv`**, ya que el cuaderno lo utiliza como base para el análisis y modelado.  
+3. **Ejecutar las celdas en orden**, desde la carga de datos hasta el modelado.  
+4. Verificar que estén instaladas las librerías necesarias: Pandas, NumPy, Matplotlib, Seaborn y Scikit-learn.  
+5. El cuaderno mostrará los resultados del análisis, gráficos y métricas de los modelos.  
